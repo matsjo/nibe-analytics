@@ -1,20 +1,21 @@
 
-# Arduino sketch for collecting data msgs from Nibe Fighter 113x/1150 series.
-#
-# Mats Johansson, 2017
+// Arduino sketch for collecting data msgs from Nibe Fighter 113x/1150 series.
+//
+// Mats Johansson, 2017
 
 
 #include "WiFiEsp.h"
 
-# parameters for Wifi and HTTP REST end-point
+// parameters for Wifi and HTTP REST end-point
 
-char ssid[] = "<SSID>";           // network SSID 
-char pass[] = "<WPA Password>";   // network WPA password
+char ssid[] = "ASUS";           // network SSID 
+char pass[] = "bengtsson818625";   // network WPA password
 int status = WL_IDLE_STATUS;      // Wifi radio status
-char server[] = "192.168.1.90";   // HTTP REST IP
+char server[] = "192.168.1.84";   // HTTP REST IP
 int port = 8060;                  // HTTP REST TCP port 
 
-# end of wifi config
+// end of wifi config
+
 
 unsigned long lastConnectionTime = 0;               // last time connected to the server, in milliseconds
 const unsigned long postingInterval = 30L * 1000L;  // delay between updates, in milliseconds
@@ -841,7 +842,7 @@ void decodeParameter(byte paramNumber, byte pV4, byte pV3, byte pV2, byte pV1) {
           addJSON("0x44",(String) pValue);
         break;
                
-      /*  // using logstash timesamp instead
+      /*  // using logstash timestamp instead
       case 0x45: // year
           year = pV2*0x100+pV1;
         break; 
