@@ -18,6 +18,11 @@ Arduino board for dumping data over Wifi from a Nibe Geothermal Heat Pump (Fight
  
  - A webservice collecting the Nibe data messages (logstash, AWS Lamdba, Node.js, Tomcat etc, etc, etc) and writing them to cloud storage. Example provid at https://github.com/matsjo/nibe-analytics/tree/master/logstash 
 
+### Instructions
+
+1. Build the Arduino
+1. Compile and download the Sketch
+1. Connect it to the Nibe Heat Pump 
 
 ### Arduino Board
 
