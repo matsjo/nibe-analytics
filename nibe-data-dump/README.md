@@ -45,9 +45,18 @@ Arduino board for dumping data over Wifi from a Nibe Geothermal Heat Pump (Fight
  
  ![Arduino RS485](../docs/images/00000-RS485.jpg)
 
+### Connecting the Arduino
+
+We can connect the Arduino to the the RJ245 connector at the Nibe DPU board OR to the Main Nibe PCB.
+
+#### Nibe DPU RJ-45 connector location
+ 
  ![Nibe DPU RJ-45 connector](../docs/images/00000-NibeDPU.jpg)
  
+ #### Nibe PCB RJ-45 connector location
+ 
  ![Nibe PCB RJ-45 connector](../docs/images/00000-NibePCB.jpg)
+ 
  
 
 
