@@ -8,7 +8,7 @@ Initial scope is:
   1. Build an Arduino to dump the Nibe data bus without paying +1K Euros for an RCU-11 unit from Nibe - https://github.com/matsjo/nibe-analytics/blob/master/nibe-data-dump/README.md
   2. Arduino Sketch to decode and write a JSON to Logstash - https://github.com/matsjo/nibe-analytics/blob/master/nibe-data-dump/nibe-data-dump.ino  
   3. Extract and Load the data to cloud storage via Logstash - https://github.com/matsjo/nibe-analytics/blob/master/logstash/README.md
-  4. Load and Transform the data into a Snowflake Data Warehouse - https://github.com/matsjo/nibe-analytics/blob/master/snowflake/schema/nibe-analytics.sql 
+  4. Load and Transform the data into a Snowflake Data Warehouse - https://github.com/matsjo/nibe-analytics/blob/master/snowflake/README.md 
   5. Create a Nibe near-real time dashboard in Snowflake Snowsight - COMING SOON.
   6. Perform Feature Engineering and Machine Learning on the sensor data to understand how to optimize the pump operation - ROAD MAP
   7. Figure out how to manage the pump programmatically via the Arduino. - SLOWLY IN PROGRESS
