@@ -1,4 +1,4 @@
-# nibe-nalytics
+# Nibe-Analytics
 
 Project for data collection, analytics and optimization based on SQL and Python ML for legacy Nibe Fighter heat pumps. This as the Nibe heat curve funcion is static and  basic in comparison with a trained machine learning scenario. Goal is to decrease power consumption by 10% with same comfort. 
   
