@@ -1,15 +1,22 @@
-# nibeanalytics
+# nibe-nalytics
 
-Project for data collection, analytics and optimization for Nibe Fighter heat pumps. 
-
-Initial ideas with the project are:
-
-  1. Get graphs and visualization for your heat pump without paying +1K Euros for an RCU-11 unit from Nibe.
-  2. Optimize the heat pump oeration by the use of machine learning. This as the Nibe heat curve functionality is static and  basic in comparison with a trained machine learning scenario. Goal is decrease power consumption by 5% with same comfort. 
+Project for data collection, analytics and optimization based on SQL and Python ML for legacy Nibe Fighter heat pumps. This as the Nibe heat curve funcion is static and  basic in comparison with a trained machine learning scenario. Goal is to decrease power consumption by 10% with same comfort. 
   
-Can be used as a replacement for the Nibe RCU-10 or RCU-11 commercial modules.  
 
-The project should fairly work with the listed pumps below (list is based on pumps compatible with RCU-11/10):
+Initial scope is:
+
+  1. Build an Arduino to dump the Nibe data bus without paying +1K Euros for an RCU-11 unit from Nibe - https://github.com/matsjo/nibe-analytics/blob/master/nibe-data-dump/README.md
+  2. Arduino Sketch to decode and write a JSON to Logstash - https://github.com/matsjo/nibe-analytics/blob/master/nibe-data-dump/nibe-data-dump.ino  
+  3. Extract and Load the data to cloud storage via Logstash - https://github.com/matsjo/nibe-analytics/blob/master/logstash/README.md
+  4. Load and Transform the data into a Snowflake Data Warehouse - https://github.com/matsjo/nibe-analytics/blob/master/snowflake/schema/nibe-analytics.sql 
+  5. Create a Nibe near-real time dashboard in Snowflake Snowsight - COMING SOON.
+  6. Perform Feature Engineering and Machine Learning on the sensor data to understand how to optimize the pump operation - ROAD MAP
+  7. Figure out how to manage the pump programmatically via the Arduino. - SLOWLY IN PROGRESS
+  8. Programmatically optimize the pump operation by adjusting the config in near real time - ROAD MAP. 
+
+The Arduino solution can be used as a replacement for the Nibe RCU-10 or RCU-11 commercial modules.  
+
+The project should work with the listed pumps below (list is based on pumps compatible with RCU-11/10):
 
 - Nibe Fighter 360p (v) 
 - Nibe Fighter 113x (v)
@@ -21,63 +28,12 @@ The project should fairly work with the listed pumps below (list is based on pum
 
 (v = verified - Please add your model to the list of verified heat pumps)
 
+## Some requirements
 
-## Current functionality: 
-
-  - Data collection over RS485 serial bus
-  - Posting of data to HTTP REST service over Wifi using ESPN8266
-  - Currently configured for logstash HTTP Input module (https://www.elastic.co/guide/en/logstash/current/plugins-inputs-http.html)
-
-
-## Roadmap:
-
-  - Elasticsearch Dashboard for visualization (in progress).
-  - Usage of AI / Machine learning for heat pump optimization and  management.
-  - Figure out and implement the Nibe Command structure so heat pump can be managed prgrammatically.
-   
-
-## Requirements:
-
- - Arduino ATmega2560 (or any Arduino compatible board with support for two or more programmable serial ports).
- - ESP2866 Wifi shield for Arduino
- - WifiEsp Software library for ESP8266 - https://github.com/bportaluri/WiFiEsp
- - RS485 shield for Arduino
- 
- - A compatibel Nibe Fighter heat pump running Nibe Software version 2.0 or above (required for RCU-10/11 functionality)
- - A webservice collecting the Nibe data messages (logstash, hadoop, nodejs etc, etc)
- 
-## Arduino Nibe Logger
-
- ** WARNING ! Before connecting the logger, the Nibe heat pump and the Arduino logger MUST have a common ground connected. Otherwise the Nibe CPU PCB is in danger (expensive).  
-
- ![Arduino Nibe Logger](images/00000-arduinoNibeLogger.jpg)
-
-#### Connection scheme Nibe RJ45 -> TP Cable -> RS485 -> Arduino 
-
- The connection to the heat pump is done using a standard RJ-45 TP Ethernet cable (for pinning se table below). Connect the cable to any of the Nibe Serial Bus end-points. For Nibe 1130 thee are two serial bus end-points at the Display Unit (DPU) and at the main PCB (pictures below).  
- 
-| Nibe RJ45 | RS485 | Arduino |
-|-----------|-------|---------|
-|   1  |   A   |         |
-|   2  |   B   |         |
-|  7,8 |       |   GND   |
-|      |   DI  |   18    |
-|      |   DE  |    9    |
-|      |   RE  |    8    |
-|      |   RO  |   19    |
-|      |   GND |   GND   |
-|      |   VCC |   5V    |
+- A compatible Nibe Geothermal Heatpump w Nibe Software version 2.0 or above.
+- Arduino board incl Wifi and RS486 shields.
+- A web service able to receive http msgs and dump them to cloud storage - Git based on logstash and AWS s3 but works with any http service and a cloud storage compatible with Snowflake.
+- A Snowflake account - https://trial.snowflake.com/
+- Arduino C/C++, SQL and Python skills helps.
 
 
- 
- ![Arduino RS485](images/00000-RS485.jpg)
-
- ![Nibe DPU RJ-45 connector](images/00000-NibeDPU.jpg)
- 
- ![Nibe PCB RJ-45 connector](images/00000-NibePCB.jpg)
- 
-
-
-
-
- 
