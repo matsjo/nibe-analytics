@@ -1,15 +1,15 @@
 
 // Arduino sketch for collecting data msgs from Nibe Fighter 113x/1150 series.
 //
-// Mats Johansson, 2017
+// Mats Johansson, 2020
 
 
 #include "WiFiEsp.h"
 
 // parameters for Wifi and HTTP REST end-point
 
-char ssid[] = "ASUS";           // network SSID 
-char pass[] = "bengtsson818625";   // network WPA password
+char ssid[] = "<ssid>";           // network SSID 
+char pass[] = "<password>";   // network WPA password
 int status = WL_IDLE_STATUS;      // Wifi radio status
 char server[] = "192.168.1.84";   // HTTP REST IP
 int port = 8060;                  // HTTP REST TCP port 
