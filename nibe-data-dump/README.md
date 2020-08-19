@@ -24,8 +24,9 @@ Arduino board for dumping data over Wifi from a Nibe Geothermal Heat Pump (Fight
  ** WARNING ! Before connecting the Arduino, the Nibe heat pump and the Arduino logger MUST have a common ground connected. Otherwise the Nibe CPU PCB is in danger (expensive).  
 
  ![Arduino Nibe Logger](../docs/images/00000-arduinoNibeLogger.jpg)
+ #### (Pict 1) Arduino circuit schema
 
-#### Connection scheme Nibe RJ45 -> TP Cable -> RS485 -> Arduino 
+### Connection schema Nibe RJ45 -> TP Cable -> RS485 -> Arduino 
 
  The connection to the heat pump is done using a standard RJ-45 TP Ethernet cable (for pinning se table below). Connect the cable to any of the Nibe Serial Bus end-points. For Nibe 1130 thee are two serial bus end-points at the Display Unit (DPU) and at the main PCB (pictures below).  
  
@@ -44,7 +45,7 @@ Arduino board for dumping data over Wifi from a Nibe Geothermal Heat Pump (Fight
 
  
  ![Arduino RS485](../docs/images/00000-RS485.jpg)
- ##### Arduino RS485 close-up
+#### (Pict 2) Arduino RS485 close-up
 
 ### Connecting the Arduino
 
@@ -52,10 +53,10 @@ We can connect the Arduino to the the RJ245 connector at the Nibe DPU board OR t
 
  ![Nibe DPU RJ-45 connector](../docs/images/00000-NibeDPU.jpg)
 
-##### Nibe DPU RJ-45 connector location
+##### (Pict 3) Nibe DPU RJ-45 connector location
 
  ![Nibe PCB RJ-45 connector](../docs/images/00000-NibePCB.jpg)
- ##### Nibe PCB RJ-45 connector location
+##### (Pict 4) Nibe PCB RJ-45 connector location
 
  
 
